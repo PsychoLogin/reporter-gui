@@ -1,14 +1,10 @@
-<section class="user-session-data">
-  <header>
-    <h1>SessionData</h1>
-  </header>
-  <section class="main">
-    <ul class="session-data-list">
-      <li *ngFor="let data of datas">
-        <div>
-          {{data.browser}}, {{data.operatingSystem}}
-        </div>
-      </li>
-    </ul>
-  </section>
-</section>
+<md-toolbar>
+  SessionData
+</md-toolbar>
+<nav>
+  <a routerLink="/logins" routerLinkActive="active">User Logins</a>
+</nav>
+
+<router-outlet></router-outlet>
+
+

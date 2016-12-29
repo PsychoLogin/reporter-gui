@@ -37,7 +37,8 @@ function toSessionData(r: any): UserSession {
     language: r.language,
     browser: r.browser,
     location: r.location,
-    referrer: r.referrer
+    referrer: r.referrer,
+    userId: r.session.blogUserId
   });
   console.log('Parsed userSession', userSession);
   return userSession;

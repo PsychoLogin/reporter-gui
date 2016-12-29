@@ -1,5 +1,6 @@
 export class UserSession {
   sessionId: string;
+  userId: string;
   operatingSystem: string;
   language: string;
   browser: string;
