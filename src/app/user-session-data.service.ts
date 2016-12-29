@@ -2,6 +2,8 @@ import {Injectable} from "@angular/core";
 import {UserSession} from "./user-session";
 import {Observable} from "rxjs";
 import {Http, Response, Headers} from "@angular/http";
+import 'rxjs/add/operator/map'
+
 
 
 @Injectable()
@@ -24,6 +26,7 @@ export class UserSessionDataService {
   }
 }
 function mapUserSessionData(response: Response): UserSession[] {
+  console.log(response);
   return response.json().map(toSessionData);
 }
 
