@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from "@angular/core";
 import {UserSessionDataService} from "./user-session-data.service";
 
 @Component({

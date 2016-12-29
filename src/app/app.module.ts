@@ -7,16 +7,22 @@ import { AppComponent } from './app.component';
 import {MaterialModule} from "@angular/material";
 import {RouterModule, Routes} from "@angular/router";
 import { LoginComponent } from './login/login.component';
+import { ConfigurationComponent } from './configuration/configuration.component';
+import { AlertsComponent } from './alerts/alerts.component';
 
 const appRoutes: Routes = [
-  {path: 'logins', component: LoginComponent }
+  {path: 'logins', component: LoginComponent },
+  {path: 'configuration', component: ConfigurationComponent},
+  {path: 'alerts', component: AlertsComponent}
 ];
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    ConfigurationComponent,
+    AlertsComponent
   ],
   imports: [
     BrowserModule,
