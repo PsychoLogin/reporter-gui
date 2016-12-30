@@ -1,3 +1,11 @@
-<p>
-  {{staticConfig.minimumNumberLogins}}
-</p>
+  <md-input-container>
+    <input md-input type="number" placeholder="Minimum Logins" [(ngModel)]="staticConfig.minimumNumberLogins">
+  </md-input-container>
+  <md-input-container>
+
+  <input md-input type="number" placeholder="Warning Level" [(ngModel)]="staticConfig.penaltyWarningLevel">
+  </md-input-container>
+    <md-input-container>
+    <input md-input type="number" placeholder="Error Level" [(ngModel)]="staticConfig.penaltyErrorLevel">
+  </md-input-container>
+  <button md-button (click)="updateStaticConfig(staticConfig)">Save</button>

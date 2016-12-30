@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {StaticConfigService} from "../static-config.service";
 import {StaticConfig} from "../static-config";
 
@@ -17,6 +17,15 @@ export class ConfigurationComponent implements OnInit {
     this.userSessionDataService
       .getStaticConfig()
       .subscribe(d => this.staticConfig = d)
+  }
+
+  updateStaticConfig(config) {
+    this.userSessionDataService
+      .updateConfig(config)
+      .subscribe(
+        d => console.log(d)
+      );
+
   }
 
 }
