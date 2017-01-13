@@ -1,5 +1,6 @@
-<md-list>
-  <md-list-item *ngFor="let data of datas">
-    {{data.browser}}, {{data.operatingSystem}}, {{data.userId}}
-  </md-list-item>
-</md-list>
+<ngx-charts-bar-horizontal
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="users"
+  [yAxis]="true"
+(select)="onSelect($event)"></ngx-charts-bar-horizontal>

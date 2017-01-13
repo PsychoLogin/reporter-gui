@@ -1,22 +1,33 @@
 import {Injectable} from "@angular/core";
-import {UserSession} from "./user-session";
 import {Observable} from "rxjs";
 import {Http, Response, Headers} from "@angular/http";
-import 'rxjs/add/operator/map'
-
+import "rxjs/add/operator/map";
 
 
 @Injectable()
 export class UserSessionDataService {
 
-  private serviceUrl:string = 'http://localhost:8080/reporter/resources/report/login';  // URL to web API
+  private serviceUrl: string = 'http://localhost:8080/reporter/resources/report/user';  // URL to web API
+
   constructor(private http: Http) {
   }
 
-  getAllUserSessionData(): Observable<UserSession[]> {
+  getBrowserInfo(username): Observable<any[]> {
+    return this.http
+      .get('http://localhost:8080/reporter/resources/report/user/' + username + '/browser', {headers: this.getHeaders()})
+      .map((response: Response) => response.json());
+  }
+
+  getLocationInfo(username): Observable<any[]> {
+    return this.http
+      .get('http://localhost:8080/reporter/resources/report/user/' + username + '/location', {headers: this.getHeaders()})
+      .map((response: Response) => response.json());
+  }
+
+  getUsers(): Observable<any[]> {
     return this.http
       .get(this.serviceUrl, {headers: this.getHeaders()})
-      .map(mapUserSessionData);
+      .map((response: Response) => response.json());
   }
 
   private getHeaders() {
@@ -24,24 +35,7 @@ export class UserSessionDataService {
     headers.append('Accept', 'application/json');
     return headers;
   }
-}
-function mapUserSessionData(response: Response): UserSession[] {
-  console.log(response);
-  return response.json().map(toSessionData);
-}
 
-function toSessionData(r: any): UserSession {
-  let userSession = <UserSession>({
-    sessionId: r.sessionId,
-    operatingSystem: r.operatingSystem,
-    language: r.language,
-    browser: r.browser,
-    location: r.location,
-    referrer: r.referrer,
-    userId: r.session.blogUserId
-  });
-  console.log('Parsed userSession', userSession);
-  return userSession;
 
 }
 
