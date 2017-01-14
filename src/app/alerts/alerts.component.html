@@ -1,3 +1,5 @@
-<p>
-  alerts works!
-</p>
+<md-list>
+  <a md-list-item *ngFor="let alert of alerts" href="/logins/{{alert.blogUser.userName}}">
+    {{alert.severity}} - {{alert.blogUser.userName}}
+  </a>
+</md-list>
