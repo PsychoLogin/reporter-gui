@@ -16,6 +16,7 @@ export class UserComponent implements OnInit {
 
   browserData: any = [];
   locationData: any = [];
+  keystrokeData: any = [];
 
   view: any[] = [600, 200];
 
@@ -35,6 +36,11 @@ export class UserComponent implements OnInit {
     this.userSessionDataService
       .getLocationInfo(this.username)
       .subscribe(d => this.locationData = d);
+
+    this.userSessionDataService
+      .getKeystrokes(this.username)
+      .subscribe(d => this.keystrokeData = d);
+
   }
 
 }

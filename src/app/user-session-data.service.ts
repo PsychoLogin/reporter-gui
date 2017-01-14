@@ -36,6 +36,12 @@ export class UserSessionDataService {
       .map((response: Response) => response.json());
   }
 
+  getKeystrokes(username): Observable<any[]> {
+    return this.http
+      .get('http://localhost:8080/reporter/resources/report/user/'+ username + '/keystrokes', {headers: this.getHeaders()})
+      .map((response: Response) => response.json())
+  }
+
   private getHeaders() {
     let headers = new Headers();
     headers.append('Accept', 'application/json');
